@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة كورس جديد - لوحة التحكم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                        accent: '#f093fb',
+                        light: '#f8f9fa'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        .sidebar-link {
+            transition: all 0.3s ease;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: #667eea;
+            color: white;
+            transform: translateX(-4px);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-md flex-shrink-0">
+            <div class="p-6 text-center border-b">
+                <h2 class="text-2xl font-bold text-primary">لوحة التحكم</h2>
+            </div>
+            <nav class="mt-6">
+                <a href="teacher_dashboard.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-tachometer-alt ml-4"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="teacher_manage_courses.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link active">
+                    <i class="fas fa-book ml-4"></i>
+                    <span>إدارة الكورسات</span>
+                </a>
+                <a href="teacher_manage_students.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-users ml-4"></i>
+                    <span>إدارة الطلاب</span>
+                </a>
+                <a href="#" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-chart-bar ml-4"></i>
+                    <span>التقارير</span>
+                </a>
+                <a href="#" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-cog ml-4"></i>
+                    <span>الإعدادات</span>
+                </a>
+                <a href="index.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link mt-8">
+                    <i class="fas fa-sign-out-alt ml-4"></i>
+                    <span>تسجيل الخروج</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <header class="flex justify-between items-center mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-800">إضافة كورس جديد</h1>
+                    <p class="text-gray-600">املأ النموذج التالي لإضافة كورس جديد إلى المنصة.</p>
+                </div>
+            </header>
+
+            <!-- Add Course Form -->
+            <div class="bg-white p-8 rounded-xl shadow-md">
+                <form class="space-y-6">
+                    <div>
+                        <label for="course-title" class="block text-gray-700 font-semibold mb-2">اسم الكورس</label>
+                        <input type="text" id="course-title" placeholder="مثال: مقدمة في الفيزياء الكمية" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+
+                    <div>
+                        <label for="course-description" class="block text-gray-700 font-semibold mb-2">وصف الكورس</label>
+                        <textarea id="course-description" rows="6" placeholder="اكتب وصفاً جذاباً للكورس هنا..." class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="course-category" class="block text-gray-700 font-semibold mb-2">فئة الكورس</label>
+                            <select id="course-category" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white">
+                                <option>الفيزياء</option>
+                                <option>الرياضيات</option>
+                                <option>الكيمياء</option>
+                                <option>الأحياء</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="course-price" class="block text-gray-700 font-semibold mb-2">سعر الكورس ($)</label>
+                            <input type="number" id="course-price" placeholder="مثال: 50" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">صورة الكورس</label>
+                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-primary transition-all">
+                            <i class="fas fa-cloud-upload-alt text-4xl text-gray-400"></i>
+                            <p class="mt-2 text-gray-600">اسحب وأفلت الصورة هنا، أو <span class="text-primary font-semibold">تصفح الملفات</span></p>
+                            <input type="file" class="hidden">
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end space-x-4 space-x-reverse">
+                        <a href="teacher_manage_courses.html" class="py-2 px-6 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all">إلغاء</a>
+                        <a href="teacher_manage_courses.html" class="btn-primary text-white py-2 px-6 rounded-lg font-semibold shadow-lg hover:opacity-90 transition-all">حفظ الكورس</a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

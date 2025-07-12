@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب جديد - منصة الأستاذ محمد أحمد</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                        accent: '#f093fb'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+    <div class="min-h-screen flex items-center justify-center px-4">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md">
+            <div class="text-center mb-6">
+                <a href="index.html" class="inline-block mb-4">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto">
+                        <i class="fas fa-graduation-cap text-3xl text-primary"></i>
+                    </div>
+                </a>
+                <h3 class="text-2xl font-bold text-gray-800">إنشاء حساب جديد</h3>
+                <p class="text-gray-600">انضم إلينا وابدأ رحلتك التعليمية</p>
+            </div>
+            <form action="student_dashboard.html" class="space-y-6">
+                <div>
+                    <label class="block text-gray-700 mb-2">الاسم الكامل</label>
+                    <input type="text" placeholder="ادخل اسمك الكامل" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">البريد الإلكتروني</label>
+                    <input type="email" placeholder="ادخل بريدك الإلكتروني" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">كلمة المرور</label>
+                    <input type="password" placeholder="ادخل كلمة المرور" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">تأكيد كلمة المرور</label>
+                    <input type="password" placeholder="أعد إدخال كلمة المرور" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                </div>
+                <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-semibold">
+                    <i class="fas fa-user-plus mr-2"></i>إنشاء الحساب
+                </button>
+            </form>
+            <div class="text-center mt-6">
+                <p class="text-gray-600">لديك حساب بالفعل؟ <a href="login_page.html" class="font-semibold text-primary hover:text-secondary">سجل دخولك</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

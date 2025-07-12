@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاهدة الكورس - الفيزياء الحديثة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                        accent: '#f093fb',
+                        light: '#f8f9fa'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        .lecture-item.active, .lecture-item:hover {
+            background-color: #f0f2ff;
+        }
+        .lecture-item.active {
+            border-right: 4px solid #667eea;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="flex min-h-screen">
+        <!-- Lectures Sidebar -->
+        <aside class="w-80 bg-white shadow-md flex-shrink-0 h-screen overflow-y-auto">
+            <div class="p-4 border-b sticky top-0 bg-white z-10">
+                <h2 class="text-xl font-bold text-primary">محتويات الكورس</h2>
+                <p class="text-sm text-gray-600">الفيزياء الحديثة</p>
+            </div>
+            <div class="p-4">
+                <!-- Module 1 -->
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-2">الوحدة الأولى: النسبية الخاصة</h3>
+                    <ul class="space-y-1">
+                        <li class="lecture-item flex items-center p-3 rounded-lg cursor-pointer active">
+                            <i class="fas fa-play-circle text-primary ml-3"></i>
+                            <span class="flex-1">مقدمة عن النسبية</span>
+                            <span class="text-xs text-gray-500">15:30</span>
+                        </li>
+                        <li class="lecture-item flex items-center p-3 rounded-lg cursor-pointer">
+                            <i class="fas fa-play-circle text-gray-400 ml-3"></i>
+                            <span class="flex-1">تحويلات لورنتز</span>
+                            <span class="text-xs text-gray-500">22:10</span>
+                        </li>
+                        <li class="lecture-item flex items-center p-3 rounded-lg cursor-pointer">
+                            <i class="fas fa-file-alt text-gray-400 ml-3"></i>
+                            <span class="flex-1">ملخص القوانين</span>
+                            <span class="text-xs text-gray-500">PDF</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Module 2 -->
+                <div class="mt-6">
+                    <h3 class="font-bold text-gray-800 mb-2">الوحدة الثانية: ميكانيكا الكم</h3>
+                    <ul class="space-y-1">
+                        <li class="lecture-item flex items-center p-3 rounded-lg cursor-pointer">
+                            <i class="fas fa-play-circle text-gray-400 ml-3"></i>
+                            <span class="flex-1">إشعاع الجسم الأسود</span>
+                            <span class="text-xs text-gray-500">18:45</span>
+                        </li>
+                        <li class="lecture-item flex items-center p-3 rounded-lg cursor-pointer">
+                            <i class="fas fa-question-circle text-gray-400 ml-3"></i>
+                            <span class="flex-1">اختبار قصير</span>
+                            <span class="text-xs text-gray-500">10 أسئلة</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1">
+            <header class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-10">
+                <h1 class="text-2xl font-bold text-gray-800">مقدمة عن النسبية الخاصة</h1>
+                <div>
+                    <a href="student_dashboard.html" class="text-gray-600 hover:text-primary transition-all">
+                        <i class="fas fa-arrow-left ml-2"></i>العودة للوحة التحكم
+                    </a>
+                </div>
+            </header>
+            
+            <div class="p-8">
+                <!-- Video Player -->
+                <div class="bg-black rounded-lg shadow-2xl mb-8">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <!-- Placeholder for video player -->
+                        <iframe src="https://www.youtube.com/embed/videoseries?list=PLdCdV2ce_x_s_i_o9_2v9_vE_d-p3g_h" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Tabs for additional info -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="border-b border-gray-200">
+                        <nav class="-mb-px flex space-x-6 space-x-reverse">
+                            <button class="py-4 px-1 border-b-2 border-primary font-semibold text-primary">عن المحاضرة</button>
+                            <button class="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">ملفات التحميل</button>
+                            <button class="py-4 px-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">الأسئلة والأجوبة</button>
+                        </nav>
+                    </div>
+                    <div class="py-6">
+                        <h3 class="font-bold text-lg mb-2">وصف المحاضرة</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            في هذه المحاضرة، سنستكشف المبادئ الأساسية لنظرية النسبية الخاصة التي وضعها آينشتاين، مع التركيز على مفهومي الزمان والمكان وكيف يتأثران بالسرعات العالية. سنتناول فرضيات آينشتاين الأساسية ونستعرض بعض التجارب الفكرية الشهيرة مثل مفارقة التوأم.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

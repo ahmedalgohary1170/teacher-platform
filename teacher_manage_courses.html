@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الكورسات - لوحة التحكم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                        accent: '#f093fb',
+                        light: '#f8f9fa'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        .sidebar-link {
+            transition: all 0.3s ease;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: #667eea;
+            color: white;
+            transform: translateX(-4px);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-md flex-shrink-0">
+            <div class="p-6 text-center border-b">
+                <h2 class="text-2xl font-bold text-primary">لوحة التحكم</h2>
+            </div>
+            <nav class="mt-6">
+                <a href="teacher_dashboard.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-tachometer-alt ml-4"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="teacher_manage_courses.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link active">
+                    <i class="fas fa-book ml-4"></i>
+                    <span>إدارة الكورسات</span>
+                </a>
+                <a href="teacher_manage_students.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-users ml-4"></i>
+                    <span>إدارة الطلاب</span>
+                </a>
+                <a href="#" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-chart-bar ml-4"></i>
+                    <span>التقارير</span>
+                </a>
+                <a href="#" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-cog ml-4"></i>
+                    <span>الإعدادات</span>
+                </a>
+                <a href="index.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link mt-8">
+                    <i class="fas fa-sign-out-alt ml-4"></i>
+                    <span>تسجيل الخروج</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <header class="flex justify-between items-center mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-800">إدارة الكورسات</h1>
+                    <p class="text-gray-600">إضافة وتعديل وحذف الكورسات الخاصة بك.</p>
+                </div>
+                <div>
+                    <a href="teacher_add_course.html" class="btn-primary text-white py-2 px-6 rounded-lg font-semibold shadow-lg hover:opacity-90 transition-all inline-block">
+                        <i class="fas fa-plus ml-2"></i>إضافة كورس جديد
+                    </a>
+                </div>
+            </header>
+
+            <!-- Courses Table -->
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="p-4 font-semibold text-gray-600">اسم الكورس</th>
+                                <th class="p-4 font-semibold text-gray-600">عدد الطلاب</th>
+                                <th class="p-4 font-semibold text-gray-600">السعر</th>
+                                <th class="p-4 font-semibold text-gray-600">الحالة</th>
+                                <th class="p-4 font-semibold text-gray-600">الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <!-- Course Row 1 -->
+                            <tr>
+                                <td class="p-4 flex items-center">
+                                    <img src="https://via.placeholder.com/80x60" alt="Course Image" class="w-20 h-14 object-cover rounded-md ml-4">
+                                    <span class="font-semibold text-gray-800">الفيزياء الحديثة</span>
+                                </td>
+                                <td class="p-4 text-gray-700">150</td>
+                                <td class="p-4 text-gray-700">$50</td>
+                                <td class="p-4">
+                                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">منشور</span>
+                                </td>
+                                <td class="p-4">
+                                    <a href="teacher_manage_lectures.html" class="text-blue-500 hover:text-blue-700 ml-4"><i class="fas fa-folder-open"></i></a>
+                                    <a href="#" class="text-yellow-500 hover:text-yellow-700 ml-4"><i class="fas fa-edit"></i></a>
+                                    <button class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Course Row 2 -->
+                            <tr>
+                                <td class="p-4 flex items-center">
+                                    <img src="https://via.placeholder.com/80x60" alt="Course Image" class="w-20 h-14 object-cover rounded-md ml-4">
+                                    <span class="font-semibold text-gray-800">الرياضيات المتقدمة</span>
+                                </td>
+                                <td class="p-4 text-gray-700">210</td>
+                                <td class="p-4 text-gray-700">$65</td>
+                                <td class="p-4">
+                                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">منشور</span>
+                                </td>
+                                <td class="p-4">
+                                    <a href="teacher_manage_lectures.html" class="text-blue-500 hover:text-blue-700 ml-4"><i class="fas fa-folder-open"></i></a>
+                                    <a href="#" class="text-yellow-500 hover:text-yellow-700 ml-4"><i class="fas fa-edit"></i></a>
+                                    <button class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Course Row 3 -->
+                            <tr>
+                                <td class="p-4 flex items-center">
+                                    <img src="https://via.placeholder.com/80x60" alt="Course Image" class="w-20 h-14 object-cover rounded-md ml-4">
+                                    <span class="font-semibold text-gray-800">الكيمياء العضوية</span>
+                                </td>
+                                <td class="p-4 text-gray-700">95</td>
+                                <td class="p-4 text-gray-700">$45</td>
+                                <td class="p-4">
+                                    <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-semibold">مسودة</span>
+                                </td>
+                                <td class="p-4">
+                                    <a href="teacher_manage_lectures.html" class="text-blue-500 hover:text-blue-700 ml-4"><i class="fas fa-folder-open"></i></a>
+                                    <a href="#" class="text-yellow-500 hover:text-yellow-700 ml-4"><i class="fas fa-edit"></i></a>
+                                    <button class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

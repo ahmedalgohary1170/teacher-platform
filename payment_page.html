@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتمام الدفع - منصة التعليم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        .card-input {
+            background-color: #f8f9fa;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .card-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-primary">
+                    <a href="index.html">منصة التعليم</a>
+                </div>
+                <div>
+                    <a href="courses_page.html" class="text-gray-700 hover:text-primary font-semibold">
+                        <i class="fas fa-arrow-left ml-2"></i>العودة للكورسات
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Payment Form -->
+            <div class="lg:col-span-2 bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">إتمام عملية الدفع</h2>
+                <form action="student_dashboard.html">
+                    <div class="mb-5">
+                        <label for="email" class="block text-gray-700 font-semibold mb-2">البريد الإلكتروني</label>
+                        <input id="email" type="email" value="student@example.com" class="w-full p-3 card-input rounded-lg" readonly>
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="card-number" class="block text-gray-700 font-semibold mb-2">معلومات البطاقة</label>
+                        <div class="relative">
+                            <input id="card-number" type="text" placeholder="**** **** **** 1234" class="w-full p-3 pl-12 card-input rounded-lg">
+                            <i class="fas fa-credit-card absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label for="expiry-date" class="block text-gray-700 font-semibold mb-2">تاريخ الانتهاء</label>
+                            <input id="expiry-date" type="text" placeholder="MM / YY" class="w-full p-3 card-input rounded-lg">
+                        </div>
+                        <div>
+                            <label for="cvc" class="block text-gray-700 font-semibold mb-2">CVC</label>
+                            <input id="cvc" type="text" placeholder="123" class="w-full p-3 card-input rounded-lg">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="card-name" class="block text-gray-700 font-semibold mb-2">الاسم على البطاقة</label>
+                        <input id="card-name" type="text" placeholder="الاسم كما يظهر على البطاقة" class="w-full p-3 card-input rounded-lg">
+                    </div>
+
+                    <button type="submit" class="w-full btn-primary text-white py-4 rounded-lg font-semibold text-lg shadow-lg">
+                        <i class="fas fa-lock ml-2"></i>ادفع الآن 349 ج.م
+                    </button>
+                    <p class="text-xs text-gray-500 mt-4 text-center">الدفع آمن ومشفر. بالضغط على الزر، أنت توافق على شروط الخدمة.</p>
+                </form>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-6 border-b pb-4">ملخص الطلب</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center rounded-lg ml-4">
+                            <i class="fas fa-atom text-4xl text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg">فيزياء الثانوية العامة</p>
+                            <p class="text-sm text-gray-500">أ. محمد أحمد</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t my-6"></div>
+                <div class="space-y-2 text-gray-700">
+                    <div class="flex justify-between">
+                        <p>المجموع الفرعي</p>
+                        <p>349 ج.م</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <p>الضريبة</p>
+                        <p>0 ج.م</p>
+                    </div>
+                </div>
+                <div class="border-t my-6"></div>
+                <div class="flex justify-between font-bold text-2xl">
+                    <p>الإجمالي</p>
+                    <p>349 ج.م</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

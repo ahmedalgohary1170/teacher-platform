@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكورسات - منصة التعليم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                        accent: '#f093fb'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .course-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .course-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .rating-stars {
+            color: #fbbf24;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="gradient-bg shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-reverse space-x-4">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-2xl text-primary"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-white text-xl font-bold">منصة التعليم</h1>
+                        <p class="text-blue-100 text-sm">الكورسات المتاحة</p>
+                    </div>
+                </div>
+                
+                <div id="mobileMenu" class="hidden md:flex flex-col md:flex-row absolute md:static top-20 right-4 bg-gray-800 md:bg-transparent p-4 md:p-0 rounded-lg shadow-lg md:shadow-none md:space-x-reverse md:space-x-8">
+                    <a href="index.html" class="text-white hover:text-blue-200 transition-colors">الرئيسية</a>
+                    <a href="courses_page.html" class="text-white hover:text-blue-200 transition-colors">الكورسات</a>
+                    <a href="index.html#about" class="text-white hover:text-blue-200 transition-colors">من أنا</a>
+                    <a href="index.html#contact" class="text-white hover:text-blue-200 transition-colors">تواصل معي</a>
+                </div>
+                
+                <div class="flex items-center space-x-reverse space-x-4">
+                    <button id="loginBtn" class="bg-white text-primary px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+                        <i class="fas fa-sign-in-alt mr-2"></i>تسجيل الدخول
+                    </button>
+                    <button id="mobileMenuBtn" class="md:hidden text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="gradient-bg py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">
+                    اكتشف الكورسات المتاحة
+                </h2>
+                <p class="text-xl text-blue-100 mb-8">
+                    اختر الكورس المناسب لك وابدأ رحلة التعلم
+                </p>
+                
+                <!-- Search Bar -->
+                <div class="max-w-2xl mx-auto">
+                    <div class="relative">
+                        <input type="text" 
+                               placeholder="ابحث عن الكورس المناسب..."
+                               class="w-full p-4 pr-12 rounded-full border-none outline-none text-lg">
+                        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary">
+                            <i class="fas fa-search text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="py-8 bg-white border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button class="filter-btn active px-6 py-3 rounded-full border-2 border-primary text-primary font-semibold" data-filter="all">
+                    جميع الكورسات
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-300 text-gray-600 font-semibold" data-filter="math">
+                    الرياضيات
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-300 text-gray-600 font-semibold" data-filter="physics">
+                    الفيزياء
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-300 text-gray-600 font-semibold" data-filter="chemistry">
+                    الكيمياء
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-300 text-gray-600 font-semibold" data-filter="languages">
+                    اللغات
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Grid -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Course 1 -->
+                <div class="course-card rounded-xl overflow-hidden shadow-lg card-hover" data-category="math">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                            <i class="fas fa-calculator text-6xl text-white"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 course-badge text-white px-3 py-1 rounded-full text-sm">
+                            رياضيات
+                        </div>
+                        <div class="absolute bottom-4 left-4 price-tag text-white px-3 py-1 rounded-full text-sm font-bold">
+                            299 ج.م
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">رياضيات الثانوية العامة</h3>
+                        <p class="text-gray-600 mb-4 text-sm">شرح مفصل لجميع فروع الرياضيات مع حل المسائل والتمارين</p>
+                        
+                        <div class="flex items-center mb-4">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm mr-2">(4.8)</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between mb-4 text-sm text-gray-600">
+                            <span><i class="fas fa-clock mr-1"></i>25 ساعة</span>
+                            <span><i class="fas fa-video mr-1"></i>40 فيديو</span>
+                            <span><i class="fas fa-users mr-1"></i>150 طالب</span>
+                        </div>
+                        
+                        <a href="payment_page.html" class="w-full btn-primary text-white py-3 rounded-lg font-semibold text-center block">
+                            <i class="fas fa-shopping-cart mr-2"></i>اشترك الآن
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card rounded-xl overflow-hidden shadow-lg card-hover" data-category="physics">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                            <i class="fas fa-atom text-6xl text-white"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 course-badge text-white px-3 py-1 rounded-full text-sm">
+                            فيزياء
+                        </div>
+                        <div class="absolute bottom-4 left-4 price-tag text-white px-3 py-1 rounded-full text-sm font-bold">
+                            349 ج.م
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">فيزياء الثانوية العامة</h3>
+                        <p class="text-gray-600 mb-4 text-sm">فهم المفاهيم الفيزيائية بطريقة سهلة ومبسطة مع التطبيقات العملية</p>
+                        
+                        <div class="flex items-center mb-4">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm mr-2">(4.9)</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between mb-4 text-sm text-gray-600">
+                            <span><i class="fas fa-clock mr-1"></i>30 ساعة</span>
+                            <span><i class="fas fa-video mr-1"></i>45 فيديو</span>
+                            <span><i class="fas fa-users mr-1"></i>120 طالب</span>
+                        </div>
+                        
+                        <a href="payment_page.html" class="w-full btn-primary text-white py-3 rounded-lg font-semibold text-center block">
+                            <i class="fas fa-shopping-cart mr-2"></i>اشترك الآن
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card rounded-xl overflow-hidden shadow-lg card-hover" data-category="chemistry">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                            <i class="fas fa-flask text-6xl text-white"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 course-badge text-white px-3 py-1 rounded-full text-sm">
+                            كيمياء
+                        </div>
+                        <div class="absolute bottom-4 left-4 price-tag text-white px-3 py-1 rounded-full text-sm font-bold">
+                            279 ج.م
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">كيمياء الثانوية العامة</h3>
+                        <p class="text-gray-600 mb-4 text-sm">تعلم أساسيات الكيمياء والتفاعلات الكيميائية بطريقة تفاعلية</p>
+                        
+                        <div class="flex items-center mb-4">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm mr-2">(4.8)</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between mb-4 text-sm text-gray-600">
+                            <span><i class="fas fa-clock mr-1"></i>28 ساعة</span>
+                            <span><i class="fas fa-video mr-1"></i>35 فيديو</span>
+                            <span><i class="fas fa-users mr-1"></i>110 طالب</span>
+                        </div>
+                        
+                        <a href="payment_page.html" class="w-full btn-primary text-white py-3 rounded-lg font-semibold text-center block">
+                            <i class="fas fa-shopping-cart mr-2"></i>اشترك الآن
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Add more courses as needed -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold">تواصل معي</h2>
+                <p class="text-gray-600 mt-4 text-lg">لديك سؤال أو استفسار؟ أنا هنا للمساعدة.</p>
+            </div>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2">الاسم</label>
+                            <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">البريد الإلكتروني</label>
+                            <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">رسالتك</label>
+                            <textarea rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-semibold">
+                            <i class="fas fa-paper-plane mr-2"></i>إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+                <div class="space-y-6 text-center md:text-right">
+                    <div class="flex items-center justify-center md:justify-start p-6 bg-white rounded-xl shadow-md">
+                        <i class="fas fa-phone-alt text-3xl text-primary"></i>
+                        <div class="mr-4">
+                            <h4 class="font-bold text-lg">رقم الهاتف</h4>
+                            <p class="text-gray-600">+20 123 456 7890</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start p-6 bg-white rounded-xl shadow-md">
+                        <i class="fas fa-envelope text-3xl text-primary"></i>
+                        <div class="mr-4">
+                            <h4 class="font-bold text-lg">البريد الإلكتروني</h4>
+                            <p class="text-gray-600">teacher@example.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start p-6 bg-white rounded-xl shadow-md">
+                        <i class="fas fa-map-marker-alt text-3xl text-primary"></i>
+                        <div class="mr-4">
+                            <h4 class="font-bold text-lg">العنوان</h4>
+                            <p class="text-gray-600">القاهرة, مصر</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md relative mx-4">
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold gradient-text">تسجيل الدخول</h3>
+                <p class="text-gray-600">ادخل بياناتك للوصول إلى الكورسات</p>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 mb-2">البريد الإلكتروني</label>
+                    <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">كلمة المرور</label>
+                    <input type="password" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                </div>
+                <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-semibold">
+                    <i class="fas fa-sign-in-alt mr-2"></i>تسجيل الدخول
+                </button>
+            </form>
+            <div class="text-center mt-6">
+                <p class="text-gray-600">ليس لديك حساب؟ <a href="register_page.html" class="text-primary hover:underline">إنشاء حساب جديد</a></p>
+            </div>
+            <button id="closeModal" class="absolute top-4 left-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Login Modal functionality
+        const loginBtn = document.getElementById('loginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.getElementById('closeModal');
+
+        if (loginBtn) {
+            loginBtn.addEventListener('click', () => {
+                loginModal.classList.remove('hidden');
+                loginModal.classList.add('flex');
+            });
+        }
+
+        if (closeModal) {
+            closeModal.addEventListener('click', () => {
+                loginModal.classList.add('hidden');
+                loginModal.classList.remove('flex');
+            });
+        }
+
+        if (loginModal) {
+            loginModal.addEventListener('click', (e) => {
+                if (e.target === loginModal) {
+                    loginModal.classList.add('hidden');
+                    loginModal.classList.remove('flex');
+                }
+            });
+        }
+
+        // Course Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const courseCards = document.querySelectorAll('.course-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Set active state for button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterCategory = button.getAttribute('data-filter');
+
+                courseCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (filterCategory === 'all' || filterCategory === cardCategory) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

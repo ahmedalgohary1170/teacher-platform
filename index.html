@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأستاذ محمد أحمد - منصة التعليم الإلكتروني</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                        accent: '#f093fb'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .course-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+    </style>
+</head>
+
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-primary">
+                    <a href="index.html"><i class="fas fa-graduation-cap mr-2"></i>منصة التعليم</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6 space-x-reverse">
+                    <a href="teacher_dashboard.html" class="text-gray-700 hover:text-primary font-semibold">لوحة تحكم المدرس</a>
+                    <a href="student_dashboard.html" class="text-gray-700 hover:text-primary font-semibold">لوحة تحكم الطالب</a>
+                    <a href="courses_page.html" class="text-gray-700 hover:text-primary font-semibold">تصفح الكورسات</a>
+                    <a href="login_page.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:opacity-90">تسجيل الدخول</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-3">
+                <a href="teacher_dashboard.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-200">لوحة تحكم المدرس</a>
+                <a href="student_dashboard.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-200">لوحة تحكم الطالب</a>
+                <a href="courses_page.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-200">تصفح الكورسات</a>
+                <a href="login_page.html" class="block py-2 px-4 text-sm text-white bg-primary rounded-lg text-center mt-2 hover:opacity-90">تسجيل الدخول</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <div class="lg:w-1/2 text-center lg:text-right mb-10 lg:mb-0">
+                    <h2 class="text-4xl lg:text-6xl font-bold text-white mb-6">
+                        تعلم مع
+                        <span class="block text-yellow-300">الأستاذ محمد</span>
+                    </h2>
+                    <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                        خبرة أكثر من 10 سنوات في تدريس الرياضيات والفيزياء
+                        <br>
+                        اكتشف طرق تعليمية مبتكرة وحديثة
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="courses_page.html" class="btn-primary text-white py-3 px-8 rounded-lg font-semibold inline-block">
+                            <i class="fas fa-play-circle mr-2"></i>ابدأ التعلم الآن
+                        </a>
+                        <button class="glass-effect text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-primary transition-all">
+                            <i class="fas fa-download mr-2"></i>تحميل المواد
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-80 h-80 bg-gradient-to-br from-yellow-400 to-pink-500 rounded-full animate-float opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-64 h-64 bg-white rounded-full flex items-center justify-center shadow-2xl">
+                                <i class="fas fa-chalkboard-teacher text-6xl text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="card-hover">
+                    <div class="bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 rounded-xl">
+                        <i class="fas fa-users text-3xl mb-4"></i>
+                        <h3 class="text-2xl font-bold">500+</h3>
+                        <p class="text-blue-100">طالب</p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <div class="bg-gradient-to-br from-green-500 to-teal-600 text-white p-6 rounded-xl">
+                        <i class="fas fa-book text-3xl mb-4"></i>
+                        <h3 class="text-2xl font-bold">25+</h3>
+                        <p class="text-green-100">كورس</p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <div class="bg-gradient-to-br from-orange-500 to-red-600 text-white p-6 rounded-xl">
+                        <i class="fas fa-clock text-3xl mb-4"></i>
+                        <h3 class="text-2xl font-bold">1000+</h3>
+                        <p class="text-orange-100">ساعة تدريس</p>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <div class="bg-gradient-to-br from-pink-500 to-rose-600 text-white p-6 rounded-xl">
+                        <i class="fas fa-star text-3xl mb-4"></i>
+                        <h3 class="text-2xl font-bold">4.9</h3>
+                        <p class="text-pink-100">تقييم</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold gradient-text mb-4">الكورسات المتاحة</h2>
+                <p class="text-xl text-gray-600">اختر الكورس المناسب لك وابدأ رحلة التعلم</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course 1 -->
+                <div class="course-card rounded-xl p-6 card-hover shadow-lg">
+                    <div class="bg-gradient-to-br from-blue-500 to-purple-600 text-white p-4 rounded-lg mb-4">
+                        <i class="fas fa-calculator text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">رياضيات الثانوية العامة</h3>
+                    <p class="text-gray-600 mb-4">شرح مفصل لجميع فروع الرياضيات مع حل المسائل</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl font-bold text-primary">299 ج.م</span>
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <span class="mr-1">4.8</span>
+                        </div>
+                    </div>
+                    <a href="payment_page.html" class="w-full btn-primary text-white py-3 rounded-lg font-semibold text-center block">
+                        <i class="fas fa-shopping-cart mr-2"></i>اشترك الآن
+                    </a>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card rounded-xl p-6 card-hover shadow-lg">
+                    <div class="bg-gradient-to-br from-green-500 to-teal-600 text-white p-4 rounded-lg mb-4">
+                        <i class="fas fa-atom text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">فيزياء الصف الثالث الثانوي</h3>
+                    <p class="text-gray-600 mb-4">فهم المفاهيم الفيزيائية بطريقة سهلة ومبسطة</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl font-bold text-primary">349 ج.م</span>
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <span class="mr-1">4.9</span>
+                        </div>
+                    </div>
+                    <a href="payment_page.html" class="w-full btn-primary text-white py-3 rounded-lg font-semibold text-center block">
+                        <i class="fas fa-shopping-cart mr-2"></i>اشترك الآن
+                    </a>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card rounded-xl p-6 card-hover shadow-lg">
+                    <div class="bg-gradient-to-br from-orange-500 to-red-600 text-white p-4 rounded-lg mb-4">
+                        <i class="fas fa-square-root-alt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">الجبر والهندسة</h3>
+                    <p class="text-gray-600 mb-4">أساسيات الجبر والهندسة للمرحلة الإعدادية</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl font-bold text-primary">199 ج.م</span>
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <span class="mr-1">4.7</span>
+                        </div>
+                    </div>
+                    <a href="payment_page.html" class="w-full btn-primary text-white py-3 rounded-lg font-semibold text-center block">
+                        <i class="fas fa-shopping-cart mr-2"></i>اشترك الآن
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <div class="w-full h-96 bg-gradient-to-br from-primary to-secondary rounded-2xl"></div>
+                        <div class="absolute inset-4 bg-white rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-user-tie text-6xl text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl font-bold gradient-text mb-6">من أنا؟</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        أستاذ محمد أحمد، خريج كلية العلوم جامعة القاهرة، أعمل في مجال التدريس منذ أكثر من 10 سنوات. 
+                        متخصص في تدريس الرياضيات والفيزياء لجميع المراحل التعليمية.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        أؤمن بأن التعليم هو المفتاح الأساسي لبناء مستقبل أفضل، لذلك أسعى لتقديم محتوى تعليمي متميز 
+                        يساعد الطلاب على فهم المفاهيم بطريقة سهلة ومبسطة.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="bg-primary text-white px-4 py-2 rounded-full">رياضيات</span>
+                        <span class="bg-secondary text-white px-4 py-2 rounded-full">فيزياء</span>
+                        <span class="bg-green-500 text-white px-4 py-2 rounded-full">التدريس الإلكتروني</span>
+                        <span class="bg-orange-500 text-white px-4 py-2 rounded-full">10+ سنوات خبرة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">تواصل معي</h2>
+                <p class="text-xl text-blue-100">هل لديك أي استفسار؟ لا تتردد في التواصل معي</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-effect p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold text-white mb-6">معلومات التواصل</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center text-white">
+                            <i class="fas fa-phone text-xl mr-4"></i>
+                            <span>+20 123 456 789</span>
+                        </div>
+                        <div class="flex items-center text-white">
+                            <i class="fas fa-envelope text-xl mr-4"></i>
+                            <span>mohamed.ahmed@email.com</span>
+                        </div>
+                        <div class="flex items-center text-white">
+                            <i class="fas fa-map-marker-alt text-xl mr-4"></i>
+                            <span>القاهرة، مصر</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4 mt-8">
+                        <a href="#" class="w-12 h-12 bg-white text-primary rounded-full flex items-center justify-center hover:bg-blue-50 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white text-primary rounded-full flex items-center justify-center hover:bg-blue-50 transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white text-primary rounded-full flex items-center justify-center hover:bg-blue-50 transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="glass-effect p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold text-white mb-6">أرسل رسالة</h3>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="الاسم" class="w-full p-3 rounded-lg border-none outline-none">
+                        <input type="email" placeholder="البريد الإلكتروني" class="w-full p-3 rounded-lg border-none outline-none">
+                        <textarea placeholder="الرسالة" rows="4" class="w-full p-3 rounded-lg border-none outline-none resize-none"></textarea>
+                        <button type="submit" class="w-full bg-white text-primary py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                            <i class="fas fa-paper-plane mr-2"></i>إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">الأستاذ محمد أحمد</h3>
+                    <p class="text-gray-400">منصة تعليمية متميزة لتدريس الرياضيات والفيزياء</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">روابط مفيدة</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-white transition-colors">الرئيسية</a></li>
+                        <li><a href="#courses" class="hover:text-white transition-colors">الكورسات</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">من أنا</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">تواصل معي</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">تابعني</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 جميع الحقوق محفوظة - الأستاذ محمد أحمد</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-2xl w-full max-w-md mx-4">
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold gradient-text">تسجيل الدخول</h3>
+                <p class="text-gray-600">ادخل بياناتك للوصول إلى الكورسات</p>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 mb-2">البريد الإلكتروني</label>
+                    <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">كلمة المرور</label>
+                    <input type="password" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                </div>
+                <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-semibold">
+                    <i class="fas fa-sign-in-alt mr-2"></i>تسجيل الدخول
+                </button>
+            </form>
+            <div class="text-center mt-6">
+                <p class="text-gray-600">ليس لديك حساب؟ <a href="register_page.html" class="text-primary hover:underline">إنشاء حساب جديد</a></p>
+            </div>
+            <button id="closeModal" class="absolute top-4 left-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Login Modal functionality
+        const loginBtn = document.getElementById('loginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.getElementById('closeModal');
+
+        loginBtn.addEventListener('click', () => {
+            loginModal.classList.remove('hidden');
+            loginModal.classList.add('flex');
+        });
+
+        closeModal.addEventListener('click', () => {
+            loginModal.classList.add('hidden');
+            loginModal.classList.remove('flex');
+        });
+
+        loginModal.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.classList.add('hidden');
+                loginModal.classList.remove('flex');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all card elements
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

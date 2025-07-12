@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم المدرس - منصة التعليم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                        accent: '#f093fb',
+                        light: '#f8f9fa'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        .sidebar-link {
+            transition: all 0.3s ease;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: #667eea;
+            color: white;
+            transform: translateX(-4px);
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-md flex-shrink-0">
+            <div class="p-6 text-center border-b">
+                <h2 class="text-2xl font-bold text-primary">لوحة التحكم</h2>
+            </div>
+            <nav class="mt-6">
+                <a href="teacher_dashboard.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link active">
+                    <i class="fas fa-tachometer-alt ml-4"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="teacher_manage_courses.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-book ml-4"></i>
+                    <span>إدارة الكورسات</span>
+                </a>
+                <a href="teacher_manage_students.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-users ml-4"></i>
+                    <span>إدارة الطلاب</span>
+                </a>
+                <a href="#" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-chart-bar ml-4"></i>
+                    <span>التقارير</span>
+                </a>
+                <a href="#" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-cog ml-4"></i>
+                    <span>الإعدادات</span>
+                </a>
+                <a href="index.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link mt-8">
+                    <i class="fas fa-sign-out-alt ml-4"></i>
+                    <span>تسجيل الخروج</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <header class="flex justify-between items-center mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-800">مرحباً بعودتك، أستاذ محمد!</h1>
+                    <p class="text-gray-600">إليك ملخص نشاطك اليوم.</p>
+                </div>
+                <div>
+                    <a href="teacher_add_course.html" class="btn-primary text-white py-2 px-6 rounded-lg font-semibold shadow-lg hover:opacity-90 transition-all">
+                        <i class="fas fa-plus ml-2"></i>إضافة كورس جديد
+                    </a>
+                </div>
+            </header>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md flex items-center">
+                    <div class="bg-blue-100 p-4 rounded-full">
+                        <i class="fas fa-users text-2xl text-blue-500"></i>
+                    </div>
+                    <div class="mr-4">
+                        <h3 class="text-gray-500">إجمالي الطلاب</h3>
+                        <p class="text-3xl font-bold text-gray-800">1,250</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex items-center">
+                    <div class="bg-green-100 p-4 rounded-full">
+                        <i class="fas fa-book-open text-2xl text-green-500"></i>
+                    </div>
+                    <div class="mr-4">
+                        <h3 class="text-gray-500">إجمالي الكورسات</h3>
+                        <p class="text-3xl font-bold text-gray-800">24</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex items-center">
+                    <div class="bg-yellow-100 p-4 rounded-full">
+                        <i class="fas fa-dollar-sign text-2xl text-yellow-500"></i>
+                    </div>
+                    <div class="mr-4">
+                        <h3 class="text-gray-500">إجمالي الأرباح</h3>
+                        <p class="text-3xl font-bold text-gray-800">$8,450</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex items-center">
+                    <div class="bg-red-100 p-4 rounded-full">
+                        <i class="fas fa-comments text-2xl text-red-500"></i>
+                    </div>
+                    <div class="mr-4">
+                        <h3 class="text-gray-500">تعليقات جديدة</h3>
+                        <p class="text-3xl font-bold text-gray-800">16</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="mt-10 bg-white p-6 rounded-xl shadow-md">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">أحدث النشاطات</h3>
+                <ul>
+                    <li class="flex items-center justify-between py-3 border-b"> 
+                        <p><strong class="text-primary">علي حسن</strong> سجل في كورس الفيزياء الحديثة.</p>
+                        <span class="text-gray-500 text-sm">منذ 15 دقيقة</span>
+                    </li>
+                    <li class="flex items-center justify-between py-3 border-b">
+                        <p>تمت إضافة محاضرة جديدة في <strong class="text-primary">كورس الرياضيات المتقدمة</strong>.</p>
+                        <span class="text-gray-500 text-sm">منذ ساعة</span>
+                    </li>
+                    <li class="flex items-center justify-between py-3">
+                        <p><strong class="text-primary">فاطمة الزهراء</strong> أكملت كورس الكيمياء العضوية.</p>
+                        <span class="text-gray-500 text-sm">منذ 3 ساعات</span>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

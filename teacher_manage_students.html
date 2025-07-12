@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الطلاب - لوحة التحكم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                        accent: '#f093fb',
+                        light: '#f8f9fa'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        .sidebar-link {
+            transition: all 0.3s ease;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: #667eea;
+            color: white;
+            transform: translateX(-4px);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-md flex-shrink-0">
+            <div class="p-6 text-center border-b">
+                <h2 class="text-2xl font-bold text-primary">لوحة التحكم</h2>
+            </div>
+            <nav class="mt-6">
+                <a href="teacher_dashboard.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-tachometer-alt ml-4"></i>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="teacher_manage_courses.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-book ml-4"></i>
+                    <span>إدارة الكورسات</span>
+                </a>
+                <a href="teacher_manage_students.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link active">
+                    <i class="fas fa-users ml-4"></i>
+                    <span>إدارة الطلاب</span>
+                </a>
+                <a href="#" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-chart-bar ml-4"></i>
+                    <span>التقارير</span>
+                </a>
+                <a href="#" class="flex items-center py-3 px-6 text-gray-700 sidebar-link">
+                    <i class="fas fa-cog ml-4"></i>
+                    <span>الإعدادات</span>
+                </a>
+                <a href="index.html" class="flex items-center py-3 px-6 text-gray-700 sidebar-link mt-8">
+                    <i class="fas fa-sign-out-alt ml-4"></i>
+                    <span>تسجيل الخروج</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <header class="flex justify-between items-center mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-800">إدارة الطلاب</h1>
+                    <p class="text-gray-600">تتبع تقدم طلابك وتفاعل معهم.</p>
+                </div>
+            </header>
+
+            <!-- Students Table -->
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="p-4 font-semibold text-gray-600">اسم الطالب</th>
+                                <th class="p-4 font-semibold text-gray-600">البريد الإلكتروني</th>
+                                <th class="p-4 font-semibold text-gray-600">الكورسات المسجلة</th>
+                                <th class="p-4 font-semibold text-gray-600">تاريخ التسجيل</th>
+                                <th class="p-4 font-semibold text-gray-600">الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <!-- Student Row 1 -->
+                            <tr>
+                                <td class="p-4 flex items-center">
+                                    <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Student Avatar" class="w-10 h-10 object-cover rounded-full ml-4">
+                                    <span class="font-semibold text-gray-800">علي حسن</span>
+                                </td>
+                                <td class="p-4 text-gray-700">ali.hassan@example.com</td>
+                                <td class="p-4 text-gray-700">3</td>
+                                <td class="p-4 text-gray-700">15 يونيو 2024</td>
+                                <td class="p-4">
+                                    <button class="text-blue-500 hover:text-blue-700 ml-4"><i class="fas fa-eye"></i></button>
+                                    <button class="text-green-500 hover:text-green-700"><i class="fas fa-envelope"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Student Row 2 -->
+                            <tr>
+                                <td class="p-4 flex items-center">
+                                    <img src="https://i.pravatar.cc/150?u=a042581f4e29026705d" alt="Student Avatar" class="w-10 h-10 object-cover rounded-full ml-4">
+                                    <span class="font-semibold text-gray-800">فاطمة الزهراء</span>
+                                </td>
+                                <td class="p-4 text-gray-700">fatima.z@example.com</td>
+                                <td class="p-4 text-gray-700">5</td>
+                                <td class="p-4 text-gray-700">12 يونيو 2024</td>
+                                <td class="p-4">
+                                    <button class="text-blue-500 hover:text-blue-700 ml-4"><i class="fas fa-eye"></i></button>
+                                    <button class="text-green-500 hover:text-green-700"><i class="fas fa-envelope"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Student Row 3 -->
+                            <tr>
+                                <td class="p-4 flex items-center">
+                                    <img src="https://i.pravatar.cc/150?u=a042581f4e29026706d" alt="Student Avatar" class="w-10 h-10 object-cover rounded-full ml-4">
+                                    <span class="font-semibold text-gray-800">خالد أمين</span>
+                                </td>
+                                <td class="p-4 text-gray-700">khaled.amin@example.com</td>
+                                <td class="p-4 text-gray-700">2</td>
+                                <td class="p-4 text-gray-700">10 يونيو 2024</td>
+                                <td class="p-4">
+                                    <button class="text-blue-500 hover:text-blue-700 ml-4"><i class="fas fa-eye"></i></button>
+                                    <button class="text-green-500 hover:text-green-700"><i class="fas fa-envelope"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
