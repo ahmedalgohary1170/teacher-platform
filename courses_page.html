@@ -91,6 +91,7 @@
                 <div class="text-2xl font-bold text-primary">
                     <a href="index.html"><i class="fas fa-graduation-cap mr-2"></i>منصة التعليم</a>
                 </div>
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-6 space-x-reverse">
                     <a href="teacher_dashboard.html" class="text-gray-700 hover:text-primary font-semibold">لوحة تحكم المدرس</a>
                     <a href="student_dashboard.html" class="text-gray-700 hover:text-primary font-semibold">لوحة تحكم الطالب</a>
@@ -100,16 +101,18 @@
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
+                        <i id="mobile-menu-icon" class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-3">
-                <a href="teacher_dashboard.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-200">لوحة تحكم المدرس</a>
-                <a href="student_dashboard.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-200">لوحة تحكم الطالب</a>
-                <a href="courses_page.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-200">تصفح الكورسات</a>
-                <a href="login_page.html" class="block py-2 px-4 text-sm text-white bg-primary rounded-lg text-center mt-2 hover:opacity-90">تسجيل الدخول</a>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="teacher_dashboard.html" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-gray-100 rounded-md">لوحة تحكم المدرس</a>
+                <a href="student_dashboard.html" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-gray-100 rounded-md">لوحة تحكم الطالب</a>
+                <a href="courses_page.html" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-gray-100 rounded-md">تصفح الكورسات</a>
+                <a href="login_page.html" class="block w-full text-center mt-2 py-3 px-4 text-base font-medium text-white bg-primary rounded-md hover:opacity-90">تسجيل الدخول</a>
             </div>
         </div>
     </nav>
@@ -440,11 +443,23 @@
     </script>
 
     <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuIcon = document.getElementById('mobile-menu-icon');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.addEventListener('click', () => {
+                const isMenuOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                if (isMenuOpen) {
+                    mobileMenuIcon.classList.remove('fa-times');
+                    mobileMenuIcon.classList.add('fa-bars');
+                } else {
+                    mobileMenuIcon.classList.remove('fa-bars');
+                    mobileMenuIcon.classList.add('fa-times');
+                }
+            });
         });
     </script>
 </body>
