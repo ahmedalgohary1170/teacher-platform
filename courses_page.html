@@ -85,34 +85,31 @@
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="gradient-bg shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-reverse space-x-4">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                        <i class="fas fa-graduation-cap text-2xl text-primary"></i>
-                    </div>
-                    <div>
-                        <h1 class="text-white text-xl font-bold">منصة التعليم</h1>
-                        <p class="text-blue-100 text-sm">الكورسات المتاحة</p>
-                    </div>
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-primary">
+                    <a href="index.html"><i class="fas fa-graduation-cap mr-2"></i>منصة التعليم</a>
                 </div>
-                
-                <div id="mobileMenu" class="hidden md:flex flex-col md:flex-row absolute md:static top-20 right-4 bg-gray-800 md:bg-transparent p-4 md:p-0 rounded-lg shadow-lg md:shadow-none md:space-x-reverse md:space-x-8">
-                    <a href="index.html" class="text-white hover:text-blue-200 transition-colors">الرئيسية</a>
-                    <a href="courses_page.html" class="text-white hover:text-blue-200 transition-colors">الكورسات</a>
-                    <a href="index.html#about" class="text-white hover:text-blue-200 transition-colors">من أنا</a>
-                    <a href="index.html#contact" class="text-white hover:text-blue-200 transition-colors">تواصل معي</a>
+                <div class="hidden md:flex items-center space-x-6 space-x-reverse">
+                    <a href="teacher_dashboard.html" class="text-gray-700 hover:text-primary font-semibold">لوحة تحكم المدرس</a>
+                    <a href="student_dashboard.html" class="text-gray-700 hover:text-primary font-semibold">لوحة تحكم الطالب</a>
+                    <a href="courses_page.html" class="text-gray-700 hover:text-primary font-semibold">تصفح الكورسات</a>
+                    <a href="login_page.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:opacity-90">تسجيل الدخول</a>
                 </div>
-                
-                <div class="flex items-center space-x-reverse space-x-4">
-                    <button id="loginBtn" class="bg-white text-primary px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
-                        <i class="fas fa-sign-in-alt mr-2"></i>تسجيل الدخول
-                    </button>
-                    <button id="mobileMenuBtn" class="md:hidden text-white">
-                        <i class="fas fa-bars text-xl"></i>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-3">
+                <a href="teacher_dashboard.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-200">لوحة تحكم المدرس</a>
+                <a href="student_dashboard.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-200">لوحة تحكم الطالب</a>
+                <a href="courses_page.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-200">تصفح الكورسات</a>
+                <a href="login_page.html" class="block py-2 px-4 text-sm text-white bg-primary rounded-lg text-center mt-2 hover:opacity-90">تسجيل الدخول</a>
             </div>
         </div>
     </nav>
@@ -442,5 +439,13 @@
         });
     </script>
 
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
