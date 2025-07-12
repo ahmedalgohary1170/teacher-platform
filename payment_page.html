@@ -50,18 +50,31 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="bg-white shadow-md">
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
                 <div class="text-2xl font-bold text-primary">
-                    <a href="index.html">منصة التعليم</a>
+                    <a href="index.html">منصة الأستاذ</a>
                 </div>
-                <div>
-                    <a href="courses_page.html" class="text-gray-700 hover:text-primary font-semibold">
-                        <i class="fas fa-arrow-left ml-2"></i>العودة للكورسات
-                    </a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-600 hover:text-primary">الرئيسية</a>
+                    <a href="courses_page.html" class="text-gray-600 hover:text-primary">الكورسات</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary">تواصل معنا</a>
+                    <a href="login_page.html" class="bg-primary text-white px-4 py-2 rounded-full hover:bg-secondary">تسجيل الدخول</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4">
+            <a href="index.html" class="block text-center text-gray-600 hover:text-primary py-2">الرئيسية</a>
+            <a href="courses_page.html" class="block text-center text-gray-600 hover:text-primary py-2">الكورسات</a>
+            <a href="#contact" class="block text-center text-gray-600 hover:text-primary py-2">تواصل معنا</a>
+            <a href="login_page.html" class="block text-center bg-primary text-white mx-4 my-2 px-4 py-2 rounded-full hover:bg-secondary">تسجيل الدخول</a>
         </div>
     </nav>
 
@@ -70,7 +83,7 @@
             
             <!-- Payment Form -->
             <div class="lg:col-span-2 bg-white p-8 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6">إتمام عملية الدفع</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">إتمام عملية الدفع</h2>
                 <form action="student_dashboard.html">
                     <div class="mb-5">
                         <label for="email" class="block text-gray-700 font-semibold mb-2">البريد الإلكتروني</label>
@@ -142,5 +155,21 @@
         </div>
     </div>
 
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = mobileMenuButton.querySelector('i');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            }
+        });
+    </script>
 </body>
 </html>
