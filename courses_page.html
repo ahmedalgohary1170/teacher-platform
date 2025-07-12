@@ -414,21 +414,29 @@
                 if (e.target === loginModal) {
                     loginModal.classList.add('hidden');
                     loginModal.classList.remove('flex');
-                }
-            });
-        }
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('mobile-menu-icon');
 
-        // Course Filter functionality
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const courseCards = document.querySelectorAll('.course-card');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            }
+        });
 
-        filterButtons.forEach(button => {
+        // Filter Courses
+        document.querySelectorAll('[data-filter]').forEach(button => {
             button.addEventListener('click', () => {
-                // Set active state for button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+                document.querySelectorAll('[data-filter]').forEach(btn => btn.classList.remove('bg-primary', 'text-white'));
+                button.classList.add('bg-primary', 'text-white');
 
                 const filterCategory = button.getAttribute('data-filter');
+                const courseCards = document.querySelectorAll('.course-card');
 
                 courseCards.forEach(card => {
                     const cardCategory = card.getAttribute('data-category');
@@ -442,25 +450,5 @@
         });
     </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mobile Menu Toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuIcon = document.getElementById('mobile-menu-icon');
-
-            mobileMenuButton.addEventListener('click', () => {
-                const isMenuOpen = !mobileMenu.classList.contains('hidden');
-                mobileMenu.classList.toggle('hidden');
-                if (isMenuOpen) {
-                    mobileMenuIcon.classList.remove('fa-times');
-                    mobileMenuIcon.classList.add('fa-bars');
-                } else {
-                    mobileMenuIcon.classList.remove('fa-bars');
-                    mobileMenuIcon.classList.add('fa-times');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
