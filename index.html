@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الأستاذ محمد أحمد - منصة التعليم الإلكتروني</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -76,6 +75,16 @@
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
     </style>
+    <style>
+        #tsparticles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
@@ -119,8 +128,9 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="gradient-bg py-20">
-        <div class="container mx-auto px-4">
+    <header class="bg-gradient-to-br from-blue-50 to-indigo-100 py-20 md:py-32 relative overflow-hidden">
+        <div id="tsparticles"></div>
+        <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col lg:flex-row items-center justify-between">
                 <div class="lg:w-1/2 text-center lg:text-right mb-10 lg:mb-0">
                     <h2 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-6">
@@ -154,7 +164,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- Stats Section -->
     <section class="py-16 bg-white">
@@ -496,6 +506,69 @@
                 mobileMenuIcon.classList.remove('fa-bars');
                 mobileMenuIcon.classList.add('fa-times');
             }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
+    <script>
+        tsParticles.load("tsparticles", {
+            fpsLimit: 60,
+            interactivity: {
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: "repulse",
+                    },
+                    resize: true,
+                },
+                modes: {
+                    repulse: {
+                        distance: 100,
+                        duration: 0.4,
+                    },
+                },
+            },
+            particles: {
+                color: {
+                    value: "#667eea",
+                },
+                links: {
+                    color: "#764ba2",
+                    distance: 150,
+                    enable: true,
+                    opacity: 0.5,
+                    width: 1,
+                },
+                collisions: {
+                    enable: true,
+                },
+                move: {
+                    direction: "none",
+                    enable: true,
+                    outModes: {
+                        default: "bounce",
+                    },
+                    random: false,
+                    speed: 2,
+                    straight: false,
+                },
+                number: {
+                    density: {
+                        enable: true,
+                        area: 800,
+                    },
+                    value: 80,
+                },
+                opacity: {
+                    value: 0.5,
+                },
+                shape: {
+                    type: "circle",
+                },
+                size: {
+                    value: { min: 1, max: 5 },
+                },
+            },
+            detectRetina: true,
         });
     </script>
 </body>
