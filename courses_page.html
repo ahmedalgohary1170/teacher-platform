@@ -92,11 +92,14 @@
                     <a href="index.html"><i class="fas fa-graduation-cap mr-2"></i>منصة التعليم</a>
                 </div>
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-6 space-x-reverse">
-                    <a href="teacher_dashboard.html" class="text-gray-700 hover:text-primary font-semibold">لوحة تحكم المدرس</a>
+                <div class="hidden md:flex items-center space-x-4 space-x-reverse">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-semibold">الرئيسية</a>
+                    <a href="courses_page.html" class="text-gray-700 hover:text-primary font-semibold">الكورسات</a>
                     <a href="student_dashboard.html" class="text-gray-700 hover:text-primary font-semibold">لوحة تحكم الطالب</a>
-                    <a href="courses_page.html" class="text-gray-700 hover:text-primary font-semibold">تصفح الكورسات</a>
-                    <a href="login_page.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:opacity-90">تسجيل الدخول</a>
+                    <a href="teacher_dashboard.html" class="text-gray-700 hover:text-primary font-semibold">لوحة تحكم المدرس</a>
+                    <a href="payment_page.html" class="text-gray-700 hover:text-primary font-semibold">الدفع</a>
+                    <a href="login_page.html" class="text-gray-700 hover:text-primary font-semibold">تسجيل الدخول</a>
+                    <a href="register_page.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:opacity-90">إنشاء حساب</a>
                 </div>
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
@@ -109,10 +112,13 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="teacher_dashboard.html" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-gray-100 rounded-md">لوحة تحكم المدرس</a>
-                <a href="student_dashboard.html" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-gray-100 rounded-md">لوحة تحكم الطالب</a>
-                <a href="courses_page.html" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-gray-100 rounded-md">تصفح الكورسات</a>
-                <a href="login_page.html" class="block w-full text-center mt-2 py-3 px-4 text-base font-medium text-white bg-primary rounded-md hover:opacity-90">تسجيل الدخول</a>
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary">الرئيسية</a>
+                <a href="courses_page.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary">الكورسات</a>
+                <a href="student_dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary">لوحة تحكم الطالب</a>
+                <a href="teacher_dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary">لوحة تحكم المدرس</a>
+                <a href="payment_page.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary">الدفع</a>
+                <a href="login_page.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary">تسجيل الدخول</a>
+                <a href="register_page.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary">إنشاء حساب</a>
             </div>
         </div>
     </nav>
@@ -450,5 +456,37 @@
         });
     </script>
 
+<script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            } else {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
+            }
+        });
+    </script>
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            } else {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
+            }
+        });
+    </script>
 </body>
 </html>
