@@ -4,45 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إدارة الطلاب - لوحة التحكم</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#667eea',
-                        secondary: '#764ba2',
-                        accent: '#f093fb',
-                        light: '#f8f9fa'
-                    },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-        }
-        .sidebar-link {
-            transition: all 0.3s ease;
-        }
-        .sidebar-link:hover, .sidebar-link.active {
-            background-color: #667eea;
-            color: white;
-            transform: translateX(-4px);
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-light">
+<body class="bg-gray-100">
 
+    <div class="main-content">
     <div x-data="{ sidebarOpen: false }">
         <!-- Sidebar -->
         <aside class="fixed inset-y-0 right-0 w-64 bg-white shadow-md transform transition-transform duration-300 z-20"
@@ -157,7 +125,50 @@
             </div>
         </main>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</div><!-- End main-content -->
+<footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div class="md:col-span-1">
+                <h3 class="text-2xl font-bold mb-4"><span class="gradient-text">عن المنصة</span></h3>
+                <p class="text-gray-400">منصة تعليمية تهدف إلى تقديم أفضل المحتوى التعليمي في مختلف المواد لمساعدة الطلاب على تحقيق النجاح.</p>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">روابط سريعة</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-primary transition-colors">الرئيسية</a></li>
+                    <li><a href="courses_page.html" class="hover:text-primary transition-colors">الكورسات</a></li>
+                    <li><a href="#contact" class="hover:text-primary transition-colors">تواصل معنا</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">سياسة الخصوصية</a></li>
+                </ul>
+            </div>
+            <!-- Social Media -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">تابعنا</h3>
+                <div class="flex space-x-4 space-x-reverse">
+                    <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:scale-110"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:scale-110"><i class="fab fa-youtube fa-lg"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:scale-110"><i class="fab fa-telegram-plane fa-lg"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:scale-110"><i class="fab fa-whatsapp fa-lg"></i></a>
+                </div>
+            </div>
+            <!-- Contact Info -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">تواصل</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-primary"></i> +20 123 456 7890</li>
+                    <li class="flex items-center"><i class="fas fa-envelope mr-3 text-primary"></i> teacher@example.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 border-t border-gray-700 pt-6 mt-8">
+            <p>&copy; 2025 جميع الحقوق محفوظة. تم التطوير بواسطة <a href="https://www.facebook.com/profile.php?id=100009924533033" class="text-primary hover:underline">Ahmed-AlGohary</a>.</p>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
